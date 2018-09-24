@@ -133,12 +133,14 @@ def getBatches(filenames):
         #labels = tf.stack(labels, axis=1)
         return features, labels
 
-    dataset = tf.data.TextLineDataset(filenames)
-    dataset = dataset.skip(1).shard(int(FLAGS.num_workers), int(FLAGS.worker_idx)) 
-    dataset = dataset.apply(tf.contrib.data.shuffle_and_repeat(buffer_size=10000, count=num_epochs))
-    dataset = dataset.apply(tf.contrib.data.map_and_batch(parse_one_batch, batch_size))
-    dataset = dataset.prefetch(1000)
-    return dataset
+    d = tf.data.Dataset.from_tensor_slices(filenames)
+    d = d.flat_map(lambda filename: tf.data.TextLineDataset(filename, buffer_size=buffer_size).skip(1))
+
+  #  d = d.apply(tf.contrib.data.shuffle_and_repeat(buffer_size=10000, count=num_epochs))
+    d = d.repeat(num_epochs)
+    d = d.apply(tf.contrib.data.map_and_batch(parse_one_batch, batch_size))
+    d = d.prefetch(1)
+    return d
 
 dnn_optimizer=tf.train.AdagradOptimizer(learning_rate)
 opt = tf.train.SyncReplicasOptimizer(dnn_optimizer, replicas_to_aggregate=FLAGS.num_workers)
@@ -158,10 +160,11 @@ def getTestData(test_files):
         features = dict([(k, columns[v]) for k, v in feature_cols.items()])
         return features
 
-    dataset = tf.data.TextLineDataset(test_files)
-    dataset = dataset.skip(1).batch(batch_size=batch_size)
-    dataset = dataset.map(parse_one_batch)
-    return dataset
+    d = tf.data.Dataset.from_tensor_slices(test_files)
+    d = d.flat_map(lambda filename: tf.data.TextLineDataset(filename, buffer_size=buffer_size).skip(1))
+    d = d.apply(tf.contrib.data.map_and_batch(parse_one_batch, batch_size))
+    d = d.prefetch(1)
+    return d
 
 train_spec = tf.estimator.TrainSpec(input_fn=lambda:getBatches([training_data_set]), hooks=[sync_replicas_hook])
 eval_spec = tf.estimator.EvalSpec(input_fn=lambda:getBatches(test_file), start_delay_secs=10)
