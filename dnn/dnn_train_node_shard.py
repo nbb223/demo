@@ -111,11 +111,16 @@ def getBatches(filenames):
 
 estimator = tf.estimator.DNNClassifier(
 		#model_dir='/tmp/tmp1mpix5xy', 
+		model_dir=model_dir,
 		hidden_units=hidden_units, feature_columns = numerical_cols, 
                 optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01, l1_regularization_strength=0.001)) 
 
+print("***** start training ******")
 start = time.time()
-estimator.train(input_fn=lambda:getBatches([training_data_set]), max_steps=10000)
+train_spec = tf.estimator.TrainSpec(input_fn=lambda:getBatches([training_data_set]))
+eval_spec = tf.estimator.EvalSpec(input_fn=lambda:getBatches(test_file), start_delay_secs=10)
+
+tf.estimator.train_and_evaluate(estimator, train_spec, eval_spec)
 
 end = time.time()
 print("***** training finished, time elapsed: ", end-start, " ******")

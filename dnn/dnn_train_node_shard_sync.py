@@ -2,12 +2,11 @@ import pandas as pd
 import tensorflow as tf
 import numpy as np
 import math
-import os, json, sys
-#from tensorflow.python.platform import tf_logging as logging
-#logging._get_logger().setLevel(logging.INFO)
-
 import time
-start = time.time()
+import os, json, sys
+from tensorflow.python.platform import tf_logging as logging
+logging._get_logger().setLevel(logging.INFO)
+#start = time.time()
 
 model_dir = 'hdfs://default/model'
 
@@ -27,75 +26,54 @@ if config['task']['type'] == 'chief':
 else:
     is_chief = False
 
-# ### prameters to adjust:
 
 hidden_units = [128,64]
 learning_rate = 0.001
-batch_size=50
-num_epochs=1
-
+batch_size=500
+num_epochs=10
 l1_regularization_strength = 0.001
-hash_bucket_size = 1000
 
-#hdfs path
-training_data_pandas = '/data/add.csv'
-training_data_set = 'hdfs://default/data/add.csv'
-test_file = 'hdfs://default/data/add.csv'
+training_data_pandas = '~/data/ai_data/kaggle-creditcard/creditcard.csv'
+training_data_set = 'hdfs://default/data/creditcard.csv'
+test_file = 'hdfs://default/data/creditcard.csv'
 
+#model_dir = '/home/songjue/temp/adv'
 delim = ','
 
-chunksize = 200
-
+chunksize = 100000
+buffer_size = 10000
 
 # ### some hard code:
 
-# In[ ]:
-
-
-label_vocabulary = ['ad.', 'nonad.']
-target = '1558'
-cols_categorical = ['0', '1', '2', '3']
-
-default_value = [[0]] + [[""]] *4 + [[0.]] * 1554 + [['nonad.']] #cols ['0', '1', '2', '3'] treated as categorical
+label_vocabulary = [0, 1]
+target = 'Class'
+default_value = [[0.]] * 30 + [[0]] 
 
 
 # ### get feature/label column names
-
-# In[ ]:
-
-from hdfs3 import HDFileSystem
-hdfs = HDFileSystem(host='172.17.0.2', port=9000) #namenode and port
-with hdfs.open(training_data_pandas) as f:
-	df = pd.read_csv(f, delimiter=delim, index_col=0, skipinitialspace=True, nrows=0)
+df = pd.read_csv(training_data_pandas,  delimiter=delim, skipinitialspace=True, nrows=0)
 
 feature_cols= {}
-idx = 1
+idx = 0
 for col in df.columns:
     feature_cols[col] = idx
     idx += 1
 
 label_cols = {target: feature_cols.pop(target)}
 
-features_categorical = []
 features_num = []
 for i in df.columns:
-    if i == target:
-        continue
-    if i in cols_categorical:
-        features_categorical.append(i)
-    else:
+    if i != target:
         features_num.append(i)
 
-print("Categorical: ", features_categorical)
 print("Numerical: ", features_num)
 
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 
-with hdfs.open(training_data_pandas) as f:
-	reader = pd.read_csv(f, delimiter=delim, index_col=0, iterator=True, chunksize=chunksize)
-	for chunk in reader:
-    		scaler.partial_fit(chunk.iloc[:, 4:-1])
+reader = pd.read_csv(training_data_pandas, delimiter=delim, iterator=True, chunksize=chunksize)
+for chunk in reader:
+    scaler.partial_fit(chunk.iloc[:, :-1])
 
 def genNormalizer(mean, std):
     def func(x):
@@ -106,31 +84,20 @@ means, stds = scaler.scale_, scaler.scale_
 
 numerical_cols = []       #numerical feature_columns
 for k in features_num:
-    avg = means[feature_cols[k]-5]
-    std = stds[feature_cols[k]-5]
+    avg = means[feature_cols[k]]
+    std = stds[feature_cols[k]]
 
     if (std == 0.):
         print("dropping column: ", k)
     else:
-        numerical_cols.append(tf.feature_column.numeric_column(key=str(k),
+        numerical_cols.append(tf.feature_column.numeric_column(key=str(k), 
                                                             normalizer_fn=genNormalizer(avg, std)))
-base_cols = []
-for col in features_categorical:
-    base_cols.append(tf.feature_column.categorical_column_with_hash_bucket(col, hash_bucket_size=hash_bucket_size))
-
-deep_cols = []
-for col in base_cols:
-    deep_cols.append(tf.feature_column.embedding_column(col, 9))
-
-deep_cols = deep_cols + numerical_cols
-wide_cols = base_cols
-
 def getBatches(filenames):
     def parse_one_batch(records):
         columns = tf.decode_csv(records, default_value, field_delim=delim)
         features = dict([(k, columns[v]) for k, v in feature_cols.items()])
         labels = [columns[v] for _, v in label_cols.items()]
-        #labels = tf.stack(labels, axis=1)
+	#labels = tf.stack(labels, axis=1)
         return features, labels
 
     d = tf.data.Dataset.from_tensor_slices(filenames)
@@ -142,43 +109,57 @@ def getBatches(filenames):
     d = d.prefetch(1)
     return d
 
-dnn_optimizer=tf.train.AdagradOptimizer(learning_rate)
-opt = tf.train.SyncReplicasOptimizer(dnn_optimizer, replicas_to_aggregate=int(FLAGS.num_workers))
+optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01, l1_regularization_strength=0.001)
+opt = tf.train.SyncReplicasOptimizer(optimizer, replicas_to_aggregate=int(FLAGS.num_workers))
 sync_replicas_hook = opt.make_session_run_hook(is_chief)
 
-estimator = tf.estimator.DNNLinearCombinedClassifier(
-    model_dir=model_dir,
-    linear_feature_columns=wide_cols,
-    dnn_feature_columns=deep_cols,
-    dnn_optimizer=opt,
-    dnn_hidden_units=hidden_units,
-    n_classes=len(label_vocabulary), label_vocabulary=label_vocabulary)
+estimator = tf.estimator.DNNClassifier(
+		#model_dir='/tmp/tmp1mpix5xy', 
+		model_dir=model_dir,
+		hidden_units=hidden_units, 
+		feature_columns = numerical_cols, 
+                optimizer=opt)
 
-def getTestData(test_files):
+tf.reset_default_graph()
+print("***** start training ******")
+start = time.time()
+train_spec = tf.estimator.TrainSpec(input_fn=lambda:getBatches([training_data_set]),  hooks=[sync_replicas_hook])
+eval_spec = tf.estimator.EvalSpec(input_fn=lambda:getBatches(test_file), start_delay_secs=10)
+
+tf.estimator.train_and_evaluate(estimator, train_spec, eval_spec)
+
+end = time.time()
+print("***** training finished, time elapsed: ", end-start, " ******")
+
+#metrics = estimator.evaluate(input_fn=lambda:getBatches([test_file]))
+#print("metrics: ", metrics)
+
+def getTestData(test_files): 
     def parse_one_batch(records):
         columns = tf.decode_csv(records, default_value, field_delim=delim)
         features = dict([(k, columns[v]) for k, v in feature_cols.items()])
         return features
-
+    
+#    dataset = tf.data.TextLineDataset(test_files)
+#    dataset = dataset.skip(1).batch(batch_size=batch_size)
+#    dataset = dataset.map(parse_one_batch)
     d = tf.data.Dataset.from_tensor_slices(test_files)
     d = d.flat_map(lambda filename: tf.data.TextLineDataset(filename, buffer_size=buffer_size).skip(1))
     d = d.apply(tf.contrib.data.map_and_batch(parse_one_batch, batch_size))
     d = d.prefetch(1)
-    return d
+    return d 
 
-train_spec = tf.estimator.TrainSpec(input_fn=lambda:getBatches([training_data_set]), hooks=[sync_replicas_hook])
-eval_spec = tf.estimator.EvalSpec(input_fn=lambda:getBatches(test_file), start_delay_secs=10)
 
-tf.estimator.train_and_evaluate(estimator, train_spec, eval_spec)
-end = time.time()
-print("***** training finished, time elapsed: ", end-start, " ******")
+start = time.time()
+results = estimator.predict(input_fn=lambda:getTestData([test_file]))
 
-results = estimator.predict(input_fn=lambda:getTestData(test_file))
 
-'''
 y_pred = []
+k = 0
 for i in results:
-    y_pred.append(i['classes'][0].decode())
+    #y_pred.append(i['classes'][0].decode())
+    k += 1
 
-print(y_pred)
-'''
+print("inference finished, time elapsed: ", time.time()-start, " ******")
+#print(y_pred)
+
