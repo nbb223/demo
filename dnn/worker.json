@@ -1,8 +1,8 @@
 {
     "cluster": {
-        "chief": ["172.17.0.2:2222"],
-        "worker": ["172.17.0.3:12222"],
-        "ps": ["172.17.0.2:2224"]
+        "chief": ["cascad4:2222"],
+        "worker": ["cascad4:12222"],
+        "ps": ["cascad4:2224"]
     },
     "task": {"type": "worker", "index": 0}
 }

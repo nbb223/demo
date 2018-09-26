@@ -4,10 +4,12 @@ import numpy as np
 import math
 import time
 import os, json, sys
+from tensorflow.python.platform import tf_logging as logging
+logging._get_logger().setLevel(logging.INFO)
 
 #start = time.time()
 
-model_dir = 'hdfs://default/model'
+model_dir = 'hdfs://default/model_credit'
 
 tf.app.flags.DEFINE_string("config", "", "tf_config file")
 tf.app.flags.DEFINE_string("num_workers", "", "num of workers")
@@ -32,9 +34,14 @@ batch_size=5000
 num_epochs=1
 l1_regularization_strength = 0.001
 
-training_data_pandas = '~/data/ai_data/kaggle-creditcard/creditcard.csv'
-training_data_set = 'hdfs://default/data/creditcard.csv'
-test_file = 'hdfs://default/data/creditcard.csv'
+#training_data_pandas = '~/data/ai_data/kaggle-creditcard/creditcard.csv'
+#training_data_set = 'hdfs://default/data/creditcard.csv'
+#test_file = 'hdfs://default/data/creditcard.csv'
+
+training_data_pandas = '/mnt/data/ai_data/kaggle-creditcard/creditcard.csv'
+training_data_set = 'hdfs://default/ai_data/creditcard_dup.csv'
+test_file = 'hdfs://default/ai_data/creditcard_dup.csv'
+
 
 #model_dir = '/home/songjue/temp/adv'
 delim = ','
@@ -109,9 +116,20 @@ def getBatches(filenames):
     return d
 
 
+config = tf.estimator.RunConfig()
+config = config.replace(keep_checkpoint_max=25, save_checkpoints_steps=5)
+'''
+print("master:", config.master)
+print("num of ps:", config.num_ps_replicas)
+print("num of workers:", config.num_worker_replicas)
+#assert config.cluster_spec == server_lib.ClusterSpec(cluster)
+print("task: ", config.task_type)
+'''
+
 estimator = tf.estimator.DNNClassifier(
 		#model_dir='/tmp/tmp1mpix5xy', 
 		model_dir=model_dir,
+                config=config,
 		hidden_units=hidden_units, feature_columns = numerical_cols, 
                 optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01, l1_regularization_strength=0.001)) 
 

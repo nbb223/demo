@@ -17,6 +17,24 @@ import time
 
 # In[ ]:
 
+model_dir = 'dmo:///model_local'
+#model_dir = None
+dmo_fs_lib="/opt/MemvergeDMO/lib/dmo_file_system.so"
+data_dir='dmo:///creditcard_dup.csv'
+#model_dir='dmo://census_model'
+def LoadFileSystem():
+    try:
+        print("Loading DMO FileSystem...", end="")
+        tf.load_file_system_library(dmo_fs_lib)
+        print("[OK]")
+        return True
+    except Exception as e:
+        print("[ERROR]")
+        print(e)
+    return False
+
+LoadFileSystem()
+
 
 hidden_units = [128,64]
 learning_rate = 0.001
@@ -25,9 +43,11 @@ num_epochs=1
 l1_regularization_strength = 0.001
 hash_bucket_size = 1000
 
-training_data_set = '/memverge/home/songjue/data/ai_data/kaggle-creditcard/creditcard.csv'
+#training_data_set = '/memverge/home/songjue/data/ai_data/kaggle-creditcard/creditcard.csv'
+training_data_set = data_dir
+data_set_pandas = '/mnt/data/ai_data/kaggle-creditcard/creditcard.csv' 
 #test_file = '/Docker_vol/ai_data/kaggle-creditcard/creditcard_fraud_test.csv'
-test_file = '/memverge/home/songjue/data/ai_data/kaggle-creditcard/creditcard.csv'
+test_file = data_dir
 
 #model_dir = '/home/songjue/temp/adv'
 delim = ','
@@ -51,7 +71,7 @@ default_value = [[0.]] * 30 + [[0]]
 # In[ ]:
 
 
-df = pd.read_csv(training_data_set,  delimiter=delim, skipinitialspace=True, nrows=0)
+df = pd.read_csv(data_set_pandas,  delimiter=delim, skipinitialspace=True, nrows=0)
 
 feature_cols= {}
 idx = 0
@@ -80,7 +100,7 @@ print("Numerical: ", features_num)
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 
-reader = pd.read_csv('/memverge/home/songjue/data/ai_data/kaggle-creditcard/creditcard_eval.csv', delimiter=delim, iterator=True, chunksize=chunksize)
+reader = pd.read_csv(data_set_pandas, delimiter=delim, iterator=True, chunksize=chunksize)
 #reader = pd.read_csv(training_data_set, delimiter=delim, iterator=True, chunksize=chunksize)
 for chunk in reader:
     scaler.partial_fit(chunk.iloc[:, :-1])
@@ -131,7 +151,7 @@ def getBatches(filenames):
 
 
 estimator = tf.estimator.DNNClassifier(
-		#model_dir='/tmp/tmp1mpix5xy', 
+		model_dir=model_dir,
 		hidden_units=hidden_units, feature_columns = numerical_cols, 
                 optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01, l1_regularization_strength=0.001)) 
 
