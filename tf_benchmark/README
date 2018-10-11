@@ -1,0 +1,18 @@
+### model could be resnet50, inception3, vgg16, and alexnet ###
+
+# must set --data_name=imagenet to run training
+
+# Bugs in branch cnn_tf_v1.10_compatible:
+	no save_model_steps and save_model_secs doesn't work! 
+
+# New flags added in tensorflow/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py, marked as 'hsj' 
+    --save_model_steps 
+    --enable_dmo
+    
+
+# Run bigisland_run_bench_hdfs.sh as user 'dmo' 
+
+# distributed training: benchmark_cnn.py:      # First worker will be 'chief'
+
+# --sync_on_finish: Enable/disable whether the devices are synced after each
+    step.

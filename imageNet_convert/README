@@ -1,0 +1,1 @@
+convert original ImageNet data to tfrecord. copied from bigisland  /home/yli/nvme_ssd/imagenet/build-scripts/
