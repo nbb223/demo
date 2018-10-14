@@ -2,63 +2,50 @@
 
 #### run as user 'dmo' ####
 
-if [ $1 == 'ps' ]; then
-  JOB_NAME='ps'
-  PARAM_DEV='cpu'
-elif [ $1 == 'wk' ]; then
-  JOB_NAME='worker'
-  PARAM_DEV='gpu'
-else
-  echo "Err: job_name must be one of <ps|wk>"
-  exit -1
-fi
+PARAM_DEV='cpu'
+NP=2
+HOSTS='maui:1,bigisland:1'
+HOROVOD_DEVICE='cpu'
 
 ## supported models listed in tensorflow/benchmarks/scripts/tf_cnn_benchmarks/models/model_config.py
-MODEL='resnet152'
-SAVE_MODEL_STEPS=5
-#WORKERS='maui:5432,bigisland:5432'
-WORKERS='bigisland:5432,maui:5432'
-PS='bigisland:6543'
+MODEL='resnet50'
+SAVE_MODEL_STEPS=1000
 
 export HADOOP_HDFS_HOME=/memverge/home/songjue/hadoop-3.1.1
 export CLASSPATH=$CLASSPATH:$(${HADOOP_HDFS_HOME}/bin/hadoop classpath --glob)
 
 
-TASK_INDEX=1
 if [ $(hostname)  == 'maui' ]; then
     export CUDA_VISIBLE_DEVICES=0
     SHARD_IDX=0
 elif [ $(hostname)  == 'bigisland' ]; then
-    hdfs dfs -rm hdfs://aep0:4545/${MODEL}_model_dir/*
+#    hdfs dfs -rm hdfs://aep0:4545/${MODEL}_model_dir/*
     export CUDA_VISIBLE_DEVICES=1
-    TASK_INDEX=0
     SHARD_IDX=1
-fi
-
-if [ ${JOB_NAME} == 'ps' ]; then
-    export CUDA_VISIBLE_DEVICES=''
-   TASK_INDEX=0
 fi
 
 cd ~songjue/tensorflow/benchmarks/scripts/tf_cnn_benchmarks
 
 # --sync_on_finish: Enable/disable whether the devices are synced after each step.
-# --use_fp16
+# --use_fp16: Not applicable to horovod
 
+mpirun -np ${NP} -H ${HOSTS} \
+    -bind-to none -map-by slot  \
+    -x NCCL_DEBUG=INFO -x LD_LIBRARY_PATH -x PATH  -x CLASSPATH -x NCCL_SOCKET_IFNAME=^docker0  \
+    -x NCCL_SOCKET_IFNAME=^virbr0   \
+    -mca orte_base_help_aggregate 0 \
+    -mca pml ob1 -mca btl ^openib -mca btl_tcp_if_exclude lo,docker0,virbr0  \
+\
 ~songjue/anaconda3-gpu/bin/python tf_cnn_benchmarks.py \
+                --forward_only=True \
+                --cross_replica_sync=0 \
                 --num_shards=2 \
                 -shard_idx=${SHARD_IDX} \
-		--task_index=${TASK_INDEX} \
-                --use_fp16=True \
-                --fp16_vars=True \
-		--job_name=${JOB_NAME} \
-                --ps_hosts=${PS}\
-                --worker_hosts=${WORKERS} \
-		--local_parameter_device=${PARAM_DEV} \
 		--save_model_steps=${SAVE_MODEL_STEPS} \
 		--batch_size=0 \
 		--model=${MODEL} \
-		--variable_update=distributed_replicated \
+		--variable_update=horovod \
+                --horovod_device=${HOROVOD_DEVICE} \
 		--data_dir=hdfs://aep0:4545/imageNet/tfrecord \
 		--data_name=imagenet \
 		--num_batches=1000 \

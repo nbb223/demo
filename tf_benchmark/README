@@ -6,13 +6,22 @@
 	no save_model_steps and save_model_secs doesn't work! 
 
 # New flags added in tensorflow/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py, marked as 'hsj' 
-    --save_model_steps 
+    --save_model_steps  #if == 0, skip checkpointing, used with 'forward_only' to do inference.
     --enable_dmo
     
 
 # Run bigisland_run_bench_hdfs.sh as user 'dmo' 
 
 # distributed training: benchmark_cnn.py:      # First worker will be 'chief'
+# distributed training: benchmark_cnn.py:      # Description of "The method for managing variables": parameter_server, replicated, ...
+    - replicated, independent only apply to local mode
+    - test results w/ bigisland:1 + maui:0 (images/sec)
+        .parameter_server:          215/s/node
+        .distributed_replicated:    280/s/node
+        .distributed_all_reduce:    340/s/total
 
+# --batch_size=0 : let tf decide the batch_size to use
+
+# --cross_replica_sync used to control syn/async training https://github.com/tensorflow/benchmarks/issues/29, where True (sync) is the default.
 # --sync_on_finish: Enable/disable whether the devices are synced after each
     step.
