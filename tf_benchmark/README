@@ -1,3 +1,7 @@
+*****  code changes to add new options and horovod, dmo support at : https://github.com/huangsongjue/benchmarks
+*****
+
+
 ### model could be resnet50, inception3, vgg16, and alexnet ###
 
 # must set --data_name=imagenet to run training

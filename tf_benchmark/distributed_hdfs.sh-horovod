@@ -9,7 +9,7 @@ HOROVOD_DEVICE='cpu'
 
 ## supported models listed in tensorflow/benchmarks/scripts/tf_cnn_benchmarks/models/model_config.py
 MODEL='resnet50'
-SAVE_MODEL_STEPS=1000
+SAVE_MODEL_STEPS=0
 
 export HADOOP_HDFS_HOME=/memverge/home/songjue/hadoop-3.1.1
 export CLASSPATH=$CLASSPATH:$(${HADOOP_HDFS_HOME}/bin/hadoop classpath --glob)
