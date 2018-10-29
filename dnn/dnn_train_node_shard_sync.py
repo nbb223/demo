@@ -11,7 +11,9 @@ logging._get_logger().setLevel(logging.INFO)
 #model_dir = 'hdfs://default/model_credit'
 model_dir = 'dmo:///model_credit'
 #model_dir = None
-dmo_fs_lib="/opt/MemvergeDMO/lib/dmo_file_system.so"
+#dmo_fs_lib="/opt/MemvergeDMO/lib/dmo_file_system.so"
+dmo_fs_lib="/opt/MemvergeDMO/lib/libmvfs_tf.so"
+
 data_dir='dmo:///creditcard_dup.csv'
 #model_dir='dmo://census_model'
 def LoadFileSystem():

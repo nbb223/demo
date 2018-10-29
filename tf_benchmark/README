@@ -1,4 +1,4 @@
-*****  code changes to add new options and horovod, dmo support at : https://github.com/huangsongjue/benchmarks
+*****  code changes to add new options for horovod, dmo support at : https://github.com/huangsongjue/benchmarks
 *****
 
 
@@ -19,13 +19,24 @@
 # distributed training: benchmark_cnn.py:      # First worker will be 'chief'
 # distributed training: benchmark_cnn.py:      # Description of "The method for managing variables": parameter_server, replicated, ...
     - replicated, independent only apply to local mode
-    - test results w/ bigisland:1 + maui:0 (images/sec)
-        .parameter_server:          215/s/node
-        .distributed_replicated:    280/s/node
-        .distributed_all_reduce:    340/s/total
+    - hdfs results w/ bigisland:1 + maui:0 (images/sec)
+        .parameter_server:          215/s/node, 430/s total 
+        .distributed_replicated:    280/s/node, 560/s total
+        .distributed_all_reduce:    340/s total
+        .horovod:                   362/s total                
+
+## BUG? for horovod must set HOROVOD_DEVICE='cpu',
+# if 'gpu', NCCL INFO NET : Using interface docker0:172.17.0.1<0>, while interfaces like 
+# docker0 is not routed, hence hang. https://github.com/uber/horovod/blob/master/docs/running.md
+##
 
 # --batch_size=0 : let tf decide the batch_size to use
 
 # --cross_replica_sync used to control syn/async training https://github.com/tensorflow/benchmarks/issues/29, where True (sync) is the default.
+    *  cross_replica_sync must be True if --variable_update = cross_replica_sync/cross_replica_sync/cross_replica_sync (line ~1290, benchmark_cnn.py)
 # --sync_on_finish: Enable/disable whether the devices are synced after each
     step.
+
+-----------------------------------------------------------------------------------
+distributed_single.sh is according to https://software.intel.com/en-us/articles/boosting-deep-learning-training-inference-performance-on-xeon-and-xeon-phi.  However workers spend a very long time at 'Running warm up'. It's nothing comparable to GPU training at all!  2018/10//19
+

@@ -10,6 +10,9 @@ import numpy as np
 import math
 import time
 
+from tensorflow.python.platform import tf_logging as logging
+logging._get_logger().setLevel(logging.INFO)
+
 #start = time.time()
 
 
@@ -131,14 +134,14 @@ def getBatches(filenames):
 
 
 estimator = tf.estimator.DNNClassifier(
-		#model_dir='/tmp/tmp1mpix5xy', 
+		model_dir='/tmp/demo_dnn', 
 		hidden_units=hidden_units, feature_columns = numerical_cols, 
                 optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01, l1_regularization_strength=0.001)) 
 
 # In[ ]:
 
 start = time.time()
-estimator.train(input_fn=lambda:getBatches([training_data_set]), max_steps=10000)
+estimator.train(input_fn=lambda:getBatches([training_data_set]), max_steps=1000)
 
 
 # In[ ]:
@@ -146,6 +149,8 @@ estimator.train(input_fn=lambda:getBatches([training_data_set]), max_steps=10000
 
 end = time.time()
 print("***** training finished, time elapsed: ", end-start, " ******")
+
+exit(0)
 
 # In[ ]:
 
