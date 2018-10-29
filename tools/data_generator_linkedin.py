@@ -1,3 +1,9 @@
+# Generating dummy features & records per LinkedIn's request: 
+# 1. extend to 100 features with 85 categorical dummy features
+# 2. each categorical feature has 200 categories
+# 3. expand data size to 256/512MB per file
+#
+
 import pandas as pd
 from multiprocessing import Process
 import os
