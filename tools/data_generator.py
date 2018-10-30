@@ -15,13 +15,14 @@ start = time.time()
 EXT_FEATURE_NUM = 85
 EXT_CATEGORY_NUM = 200
 #total data size = DATASET_SIZE * MULTIPLE
-DATASET_SIZE = 6000
-CONCURRENCY = 90 
+DATASET_SIZE = 6500
+CONCURRENCY = 90
+
 
 if sys.argv[1] == '':
     output_file = "./expand.csv"
 else :
-    input_file = sys.argv[1]
+    output_file = sys.argv[1]
 
 # In[23]:
 
@@ -133,7 +134,7 @@ for i in range(CONCURRENCY):
 
 for i in range(CONCURRENCY):
     f = output_file + str(i)
-    os.system('cat ' + f  + " >> _expand.csv")
+    os.system('cat ' + f  + " >> " + output_file)
     os.system('rm ' + f)
 
 end = time.time()
