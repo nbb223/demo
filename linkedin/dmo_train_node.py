@@ -4,6 +4,7 @@ import pandas as pd
 import tensorflow as tf
 import numpy as np
 import math, sys
+import os, json, sys
 
 import time
 from tensorflow.python.platform import tf_logging as logging
@@ -11,12 +12,28 @@ from tensorflow.python.platform import tf_logging as logging
 logging._get_logger().setLevel(logging.INFO)
 start = time.time()
 
+tf.app.flags.DEFINE_string("config", "", "tf_config file")
+tf.app.flags.DEFINE_string("num_workers", "", "num of workers")
+tf.app.flags.DEFINE_string("worker_idx", "", "index of worker")
+FLAGS = tf.app.flags.FLAGS
+if FLAGS.config == ""  or FLAGS.num_workers == "" or FLAGS.worker_idx == '':
+    print("Usage: python3 train_node.py --config=JSON_CONFIG_FILE --num_workers=  --worker_idx=")
+    sys.exit(-1)
+
+config = json.load(open(FLAGS.config, 'r'))
+os.environ["TF_CONFIG"] = json.dumps(config)
+
+if config['task']['type'] == 'chief':
+    is_chief = True
+else:
+    is_chief = False
+
 # ### prameters to adjust:
 
 hidden_units = [128,64,32] 
 learning_rate = 0.001
-batch_size=2000
-num_epochs=50
+batch_size=64
+num_epochs=1
 l1_regularization_strength = 0.001
 
 CATEGORY_NUM = 200
@@ -25,15 +42,13 @@ hash_bucket_size = CATEGORY_NUM
 
 #filenames = ["./ext_1.csv"]
 filenames = ["dmo:///census_extended/ext_1.csv"]
+test_files = ["dmo:///census_extended/ext_1.csv"]
 training_data_pandas = "sample.csv"  #to fectch feature name/dtypes and calculate mean & std for categorical columns.
 target = 'income'
 delim = ','
 label_vocabulary = ["<=50K", ">50K"]
 
 model_dir = 'dmo:///model_dir/model'
-tf.app.flags.DEFINE_string("num_workers", "", "num of workers")
-tf.app.flags.DEFINE_string("worker_idx", "", "index of worker")
-FLAGS = tf.app.flags.FLAGS
 dmo_fs_lib="/opt/MemvergeDMO/lib/libmvfs_tf.so"
 
 def LoadFileSystem():
@@ -88,13 +103,13 @@ for i in df.columns:
 emb_dim = []
 for c in features_categorical:
 #    emb_dim.append(int(math.log(len(df[c].unique()), 2)))
-    emb_dim.append(int(math.log(CATEGORY_NUM, 2)))
-#    emb_dim.append(32)
+#    emb_dim.append(int(math.log(CATEGORY_NUM, 2)))
+    emb_dim.append(32)
 #print(emb_dim)
 
 def genNormalizer(a, b):
     def func(x):
-            return (tf.cast(x, tf.float16)-a)/b
+            return (tf.cast(x, tf.float32)-a)/b
     return func
 
 numerical_cols = []
@@ -109,6 +124,12 @@ for k in features_num:
 base_cols = []            
 for col in features_categorical:
     base_cols.append(tf.feature_column.categorical_column_with_hash_bucket(col, hash_bucket_size=hash_bucket_size))
+
+'''
+crossed_cols = []
+for cols in crossed_features:
+    crossed_cols.append(tf.feature_column.crossed_column(cols, hash_bucket_size))
+'''
 
 deep_cols = []
 count = 0
@@ -129,8 +150,8 @@ def getBatches(filenames):
         return features, labels
 
     d = tf.data.Dataset.from_tensor_slices(filenames)
-  #  d = d.flat_map(lambda filename: tf.data.TextLineDataset(filename, buffer_size=10000).skip(1).shard(int(FLAGS.num_workers), int(FLAGS.worker_idx)))
-    d = d.flat_map(lambda filename: tf.data.TextLineDataset(filename, buffer_size=10000).skip(1))
+    d = d.flat_map(lambda filename: tf.data.TextLineDataset(filename, buffer_size=10000).skip(1).shard(int(FLAGS.num_workers), int(FLAGS.worker_idx)))
+  #  d = d.flat_map(lambda filename: tf.data.TextLineDataset(filename, buffer_size=10000).skip(1))
 
 #    d = d.apply(tf.contrib.data.shuffle_and_repeat(buffer_size=10000, count=num_epochs))
     d = d.repeat(num_epochs)
@@ -138,6 +159,15 @@ def getBatches(filenames):
     d = d.prefetch(1000)
     return d
 
+
+'''
+#'SyncReplicasOptimizer does not support multi optimizers case. 
+# ValueError: SyncReplicasOptimizer does not support multi optimizers case. Therefore, it is not supported in DNNLinearCombined model. If you want to use this optimizer, please use either DNN or Linear model.
+
+optimizer=tf.train.ProximalAdagradOptimizer(learning_rate=0.01, l1_regularization_strength=0.001)
+opt = tf.train.SyncReplicasOptimizer(optimizer, replicas_to_aggregate=int(FLAGS.num_workers))
+sync_replicas_hook = opt.make_session_run_hook(is_chief)
+'''
 config = tf.estimator.RunConfig()
 config = config.replace(keep_checkpoint_max=5, save_checkpoints_steps=500)
 #for Intel MKL tunning
@@ -151,10 +181,15 @@ estimator = tf.estimator.DNNLinearCombinedClassifier(
     config=config,
     linear_feature_columns=wide_cols,
     dnn_feature_columns=deep_cols,
+#    dnn_optimizer=opt,
     dnn_hidden_units=hidden_units,
     n_classes=len(label_vocabulary), label_vocabulary=label_vocabulary)
 
-estimator.train(input_fn=lambda:getBatches(filenames))
+#estimator.train(input_fn=lambda:getBatches(filenames))
+train_spec = tf.estimator.TrainSpec(input_fn=lambda:getBatches(filenames), hooks=[sync_replicas_hook])
+eval_spec = tf.estimator.EvalSpec(input_fn=lambda:getBatches(test_files), start_delay_secs=10)
+
+tf.estimator.train_and_evaluate(estimator, train_spec, eval_spec)
 
 end = time.time()
 print("***** training finished, time elapsed: ", end-start, " ******")
