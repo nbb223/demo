@@ -19,7 +19,7 @@ DATASET_SIZE = 9500
 CONCURRENCY = 90
 
 
-if sys.argv[1] == '':
+if len(sys.argv) == 1:
     output_file = "./expand.csv"
 else :
     output_file = sys.argv[1]
