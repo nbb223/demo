@@ -16,7 +16,7 @@ start = time.time()
 hidden_units = [128,64,32] 
 learning_rate = 0.001
 batch_size=2000
-num_epochs=50
+num_epochs=5
 l1_regularization_strength = 0.001
 
 CATEGORY_NUM = 200
@@ -24,7 +24,7 @@ NUM_PARALLEL_BATCHES = 100
 hash_bucket_size = CATEGORY_NUM
 
 #filenames = ["./ext_1.csv"]
-filenames = ["dmo:///census_extended/ext_1.csv"]
+filenames = ["dmo:///census_extended/exp1.csv", "dmo:///census_extended/exp2.csv", "dmo:///census_extended/exp3.csv", "dmo:///census_extended/exp4.csv", "dmo:///census_extended/exp5.csv"]
 training_data_pandas = "sample.csv"  #to fectch feature name/dtypes and calculate mean & std for categorical columns.
 target = 'income'
 delim = ','
