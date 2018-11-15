@@ -19,6 +19,7 @@ EXT_CATEGORY_NUM = 200
 DATASET_SIZE = 17618
 CONCURRENCY = 50 
 
+
 if len(sys.argv) == 1:
     output_file = "./expand.csv"
 else :

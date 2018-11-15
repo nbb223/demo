@@ -15,12 +15,20 @@ start = time.time()
 
 hidden_units = [128,64,32] 
 learning_rate = 0.001
+<<<<<<< HEAD
 batch_size=9000
+=======
+batch_size=2000
+>>>>>>> d0090a5920c0c17e9c6988febd1a03abce374f68
 num_epochs=5
 l1_regularization_strength = 0.001
 
 CATEGORY_NUM = 200
+<<<<<<< HEAD
 NUM_PARALLEL_BATCHES = 20
+=======
+NUM_PARALLEL_BATCHES = 100
+>>>>>>> d0090a5920c0c17e9c6988febd1a03abce374f68
 hash_bucket_size = CATEGORY_NUM
 
 #filenames = ["./ext_1.csv"]
@@ -34,9 +42,13 @@ model_dir = 'dmo:///model_dir/model'
 tf.app.flags.DEFINE_string("num_workers", "", "num of workers")
 tf.app.flags.DEFINE_string("worker_idx", "", "index of worker")
 FLAGS = tf.app.flags.FLAGS
+<<<<<<< HEAD
 #dmo_fs_lib="/opt/MemvergeDMO/lib/libmvfs_tf.so"
 dmo_fs_lib="/memverge/home/songjue/tools/lib/dmo_file_system.so"
 
+=======
+dmo_fs_lib="/opt/MemvergeDMO/lib/libmvfs_tf.so"
+>>>>>>> d0090a5920c0c17e9c6988febd1a03abce374f68
 
 def LoadFileSystem():
     try:

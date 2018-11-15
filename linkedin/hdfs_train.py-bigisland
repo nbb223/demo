@@ -18,15 +18,19 @@ start = time.clock()
 
 hidden_units = [128,64,32] 
 learning_rate = 0.001
-batch_size = 7000
-num_epochs = 5
+batch_size=30000
+num_epochs=50
 l1_regularization_strength = 0.001
 NUM_PARALLEL_BATCHES = 100
 hash_bucket_size = 200
 
 #filenames = ["./ext_1.csv"]
-filenames = ["hdfs://aep0:4545/census_extended/exp1.csv", "hdfs://aep0:4545/census_extended/exp2.csv", "hdfs://aep0:4545/census_extended/exp3.csv", "hdfs://aep0:4545/census_extended/exp4.csv", "hdfs://aep0:4545/census_extended/exp5.csv"]
+
+#filenames = ["hdfs://aep0:4545/census_extended/exp1.csv", "hdfs://aep0:4545/census_extended/exp2.csv", "hdfs://aep0:4545/census_extended/exp3.csv", "hdfs://aep0:4545/census_extended/exp4.csv", "hdfs://aep0:4545/census_extended/exp5.csv"]
 #filenames = ["hdfs://aep0:4545/census_extended/exp1.csv"]
+=======
+filenames = ["hdfs://aep0:4545/census_extended/ext_1.csv"]
+
 training_data_pandas = "sample.csv"  #to fectch feature name/dtypes and calculate mean & std for categorical columns.
 target = 'income'
 delim = ','
