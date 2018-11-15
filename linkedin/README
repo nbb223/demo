@@ -1,0 +1,2 @@
+'SyncReplicasOptimizer does not support multi optimizers case. 
+ ValueError: SyncReplicasOptimizer does not support multi optimizers case. Therefore, it is not supported in DNNLinearCombined model. If you want to use this optimizer, please use either DNN or Linear model.

@@ -1,0 +1,432 @@
+[09/26/18 00:07:01.677 +08:00] [debug] [CLNT] [047895] mvfs_connect warm_up false
+[09/26/18 00:07:01.677 +08:00] [info] [TFD] [047895] Connect DMO Success!
+[09/26/18 00:07:19.020 +08:00] [trace] [TFD] [048156] CreateDir: for uri dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242
+[09/26/18 00:07:19.020 +08:00] [debug] [CLNT] [048156] rh->status: 3
+[09/26/18 00:07:19.020 +08:00] [debug] [CLNT] [048156] rh->status: 3
+[09/26/18 00:07:19.020 +08:00] [debug] [CLNT] [048156] rh->status: 3
+[09/26/18 00:07:19.021 +08:00] [trace] [TFD] [048156] Create directory /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/ success.
+[09/26/18 00:07:19.021 +08:00] [trace] [TFD] [048156] NewWritableFile: for uri dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808
+[09/26/18 00:07:19.021 +08:00] [debug] [CLNT] [048156] rh->status: 3
+[09/26/18 00:07:19.022 +08:00] [trace] [TFD] [048156] NotFound DmoFile for /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808 from manager
+[09/26/18 00:07:19.022 +08:00] [trace] [TFD] [048156] NewWritableFile: new for /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808
+[09/26/18 00:07:19.030 +08:00] [trace] [TFD] [048156] Try to append file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808 fd:-1 size:98320
+[09/26/18 00:07:19.030 +08:00] [trace] [TFD] [048156] Try to open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808
+[09/26/18 00:07:19.030 +08:00] [debug] [CLNT] [048156] opening /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808 with flags 0
+[09/26/18 00:07:19.030 +08:00] [trace] [TFD] [048156] Open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808 sucess fd: 21
+[09/26/18 00:07:19.030 +08:00] [debug] [CLNT] [048156] Cache disabled, return UINT64_MAX
+[09/26/18 00:07:19.030 +08:00] [debug] [CLNT] [048156] Get Client Cached Size UINT64_MAX for fd 21
+[09/26/18 00:07:19.030 +08:00] [trace] [TFD] [048156] Get file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808 attributes success. Size: 0
+[09/26/18 00:07:19.030 +08:00] [trace] [TFD] [048156] Try to write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808 fd:21 offset:0 size:98320
+[09/26/18 00:07:19.030 +08:00] [trace] [TFD] [048156] Write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808 fd:21 offset:0 size:98320 success.
+[09/26/18 00:07:19.030 +08:00] [error] [TFD] [048156] Flushing file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808
+[09/26/18 00:07:19.030 +08:00] [trace] [TFD] [048156] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808 to dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001
+[09/26/18 00:07:19.030 +08:00] [debug] [CLNT] [048156] rh->status: 3
+[09/26/18 00:07:19.031 +08:00] [trace] [TFD] [048156] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001.tempstate9772734662957121808 to dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001 success.
+[09/26/18 00:07:19.031 +08:00] [trace] [TFD] [048156] NewWritableFile: for uri dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517
+[09/26/18 00:07:19.031 +08:00] [debug] [CLNT] [048156] rh->status: 3
+[09/26/18 00:07:19.031 +08:00] [trace] [TFD] [048156] NotFound DmoFile for /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 from manager
+[09/26/18 00:07:19.031 +08:00] [trace] [TFD] [048156] NewWritableFile: new for /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517
+[09/26/18 00:07:19.031 +08:00] [trace] [TFD] [048156] Try to append file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:-1 size:523
+[09/26/18 00:07:19.031 +08:00] [trace] [TFD] [048156] Try to open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517
+[09/26/18 00:07:19.031 +08:00] [debug] [CLNT] [048156] opening /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 with flags 0
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 sucess fd: 22
+[09/26/18 00:07:19.032 +08:00] [debug] [CLNT] [048156] Cache disabled, return UINT64_MAX
+[09/26/18 00:07:19.032 +08:00] [debug] [CLNT] [048156] Get Client Cached Size UINT64_MAX for fd 22
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Get file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 attributes success. Size: 0
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:0 size:523
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:0 size:523 success.
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to append file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 size:5
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:523 size:5
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:523 size:5 success.
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to append file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 size:8
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:528 size:8
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:528 size:8 success.
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to append file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 size:5
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:536 size:5
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:536 size:5 success.
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to append file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 size:15
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:541 size:15
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:541 size:15 success.
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to append file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 size:5
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:556 size:5
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:556 size:5 success.
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to append file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 size:48
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Try to write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:561 size:48
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] Write file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 fd:22 offset:561 size:48 success.
+[09/26/18 00:07:19.032 +08:00] [error] [TFD] [048156] Flushing file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 to dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index
+[09/26/18 00:07:19.032 +08:00] [debug] [CLNT] [048156] rh->status: 3
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index.tempstate11087346260426639517 to dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index success.
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] CreateDir: for uri dmo:///model_credit
+[09/26/18 00:07:19.032 +08:00] [debug] [TFD] [048156] Check directory /model_credit/ is existed.
+[09/26/18 00:07:19.032 +08:00] [trace] [TFD] [048156] GetFileSize: for uri dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index
+[09/26/18 00:07:19.032 +08:00] [debug] [CLNT] [048156] opening /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index with flags 0
+[09/26/18 00:07:19.032 +08:00] [debug] [CLNT] [048156] Cache disabled, return UINT64_MAX
+[09/26/18 00:07:19.032 +08:00] [debug] [CLNT] [048156] Get Client Cached Size UINT64_MAX for fd 23
+[09/26/18 00:07:19.032 +08:00] [debug] [CLNT] [048156] close file handle 23
+[09/26/18 00:07:19.032 +08:00] [debug] [CLNT] [048156] Cache disabled, return UINT64_MAX
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] NewRandomAccessFile: for uri dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] NotFound DmoFile for /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index from manager
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] NewRandomAccessFile: new for /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] Try to read file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index fd:-1 offset:561 size:48
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] Try to open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index
+[09/26/18 00:07:19.033 +08:00] [debug] [CLNT] [048156] opening /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index with flags 0
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] Open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index sucess fd: 24
+[09/26/18 00:07:19.033 +08:00] [debug] [CLNT] [048156] Cache disabled, return UINT64_MAX
+[09/26/18 00:07:19.033 +08:00] [debug] [CLNT] [048156] Get Client Cached Size UINT64_MAX for fd 24
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] Get file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index attributes success. Size: 609
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] Read file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index fd:24 offset:561 size:48 success.
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] Try to read file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index fd:24 offset:541 size:20
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] Try to open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] Read file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index fd:24 offset:541 size:20 success.
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] Try to read file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index fd:24 offset:0 size:528
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] Try to open file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] Read file /model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.index fd:24 offset:0 size:528 success.
+[09/26/18 00:07:19.033 +08:00] [trace] [TFD] [048156] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001 to dmo:///model_credit/model.ckpt-0.data-00000-of-00001
+[09/26/18 00:07:19.033 +08:00] [debug] [CLNT] [048156] rh->status: 9
+[09/26/18 00:07:19.033 +08:00] [error] [TFD] [048156] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_568912fb723e480b8e90a9917d351242/part-00000-of-00001.data-00000-of-00001 to dmo:///model_credit/model.ckpt-0.data-00000-of-00001 failed: -1009
+[09/26/18 00:15:14.652 +08:00] [trace] [TFD] [048167] CreateDir: for uri dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6
+[09/26/18 00:15:14.653 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:15:14.653 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:15:14.653 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:15:14.654 +08:00] [trace] [TFD] [048167] Create directory /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/ success.
+[09/26/18 00:15:14.654 +08:00] [trace] [TFD] [048167] NewWritableFile: for uri dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670
+[09/26/18 00:15:14.654 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:15:14.654 +08:00] [trace] [TFD] [048167] NotFound DmoFile for /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670 from manager
+[09/26/18 00:15:14.654 +08:00] [trace] [TFD] [048167] NewWritableFile: new for /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670
+[09/26/18 00:15:14.662 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670 fd:-1 size:98320
+[09/26/18 00:15:14.662 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670
+[09/26/18 00:15:14.662 +08:00] [debug] [CLNT] [048167] opening /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670 with flags 0
+[09/26/18 00:15:14.663 +08:00] [trace] [TFD] [048167] Open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670 sucess fd: 29
+[09/26/18 00:15:14.663 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:15:14.663 +08:00] [debug] [CLNT] [048167] Get Client Cached Size UINT64_MAX for fd 29
+[09/26/18 00:15:14.663 +08:00] [trace] [TFD] [048167] Get file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670 attributes success. Size: 0
+[09/26/18 00:15:14.663 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670 fd:29 offset:0 size:98320
+[09/26/18 00:15:14.663 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670 fd:29 offset:0 size:98320 success.
+[09/26/18 00:15:14.663 +08:00] [error] [TFD] [048167] Flushing file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670
+[09/26/18 00:15:14.663 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670 to dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001
+[09/26/18 00:15:14.663 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:15:14.663 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001.tempstate9320194180583630670 to dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001 success.
+[09/26/18 00:15:14.663 +08:00] [trace] [TFD] [048167] NewWritableFile: for uri dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368
+[09/26/18 00:15:14.663 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] NotFound DmoFile for /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 from manager
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] NewWritableFile: new for /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:-1 size:523
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368
+[09/26/18 00:15:14.664 +08:00] [debug] [CLNT] [048167] opening /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 with flags 0
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 sucess fd: 30
+[09/26/18 00:15:14.664 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:15:14.664 +08:00] [debug] [CLNT] [048167] Get Client Cached Size UINT64_MAX for fd 30
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Get file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 attributes success. Size: 0
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:0 size:523
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:0 size:523 success.
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 size:5
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:523 size:5
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:523 size:5 success.
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 size:8
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:528 size:8
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:528 size:8 success.
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 size:5
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:536 size:5
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:536 size:5 success.
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 size:15
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:541 size:15
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:541 size:15 success.
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 size:5
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:556 size:5
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:556 size:5 success.
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 size:48
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:561 size:48
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 fd:30 offset:561 size:48 success.
+[09/26/18 00:15:14.664 +08:00] [error] [TFD] [048167] Flushing file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368
+[09/26/18 00:15:14.664 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 to dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index
+[09/26/18 00:15:14.664 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index.tempstate1907020902083808368 to dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index success.
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] CreateDir: for uri dmo:///model_credit
+[09/26/18 00:15:14.665 +08:00] [debug] [TFD] [048167] Check directory /model_credit/ is existed.
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] GetFileSize: for uri dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index
+[09/26/18 00:15:14.665 +08:00] [debug] [CLNT] [048167] opening /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index with flags 0
+[09/26/18 00:15:14.665 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:15:14.665 +08:00] [debug] [CLNT] [048167] Get Client Cached Size UINT64_MAX for fd 31
+[09/26/18 00:15:14.665 +08:00] [debug] [CLNT] [048167] close file handle 31
+[09/26/18 00:15:14.665 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] NewRandomAccessFile: for uri dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] NotFound DmoFile for /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index from manager
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] NewRandomAccessFile: new for /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] Try to read file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index fd:-1 offset:561 size:48
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index
+[09/26/18 00:15:14.665 +08:00] [debug] [CLNT] [048167] opening /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index with flags 0
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] Open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index sucess fd: 32
+[09/26/18 00:15:14.665 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:15:14.665 +08:00] [debug] [CLNT] [048167] Get Client Cached Size UINT64_MAX for fd 32
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] Get file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index attributes success. Size: 609
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] Read file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index fd:32 offset:561 size:48 success.
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] Try to read file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index fd:32 offset:541 size:20
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] Read file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index fd:32 offset:541 size:20 success.
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] Try to read file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index fd:32 offset:0 size:528
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] Read file /model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.index fd:32 offset:0 size:528 success.
+[09/26/18 00:15:14.665 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001 to dmo:///model_credit/model.ckpt-0.data-00000-of-00001
+[09/26/18 00:15:14.665 +08:00] [debug] [CLNT] [048167] rh->status: 9
+[09/26/18 00:15:14.665 +08:00] [error] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_5676b9f55d9442e2864f81199875c7c6/part-00000-of-00001.data-00000-of-00001 to dmo:///model_credit/model.ckpt-0.data-00000-of-00001 failed: -1009
+[09/26/18 00:18:21.003 +08:00] [trace] [TFD] [048159] CreateDir: for uri dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6
+[09/26/18 00:18:21.003 +08:00] [debug] [CLNT] [048159] rh->status: 3
+[09/26/18 00:18:21.003 +08:00] [debug] [CLNT] [048159] rh->status: 3
+[09/26/18 00:18:21.003 +08:00] [debug] [CLNT] [048159] rh->status: 3
+[09/26/18 00:18:21.004 +08:00] [trace] [TFD] [048159] Create directory /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/ success.
+[09/26/18 00:18:21.004 +08:00] [trace] [TFD] [048159] NewWritableFile: for uri dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261
+[09/26/18 00:18:21.004 +08:00] [debug] [CLNT] [048159] rh->status: 3
+[09/26/18 00:18:21.005 +08:00] [trace] [TFD] [048159] NotFound DmoFile for /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261 from manager
+[09/26/18 00:18:21.005 +08:00] [trace] [TFD] [048159] NewWritableFile: new for /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261
+[09/26/18 00:18:21.013 +08:00] [trace] [TFD] [048159] Try to append file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261 fd:-1 size:98320
+[09/26/18 00:18:21.013 +08:00] [trace] [TFD] [048159] Try to open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261
+[09/26/18 00:18:21.013 +08:00] [debug] [CLNT] [048159] opening /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261 with flags 0
+[09/26/18 00:18:21.013 +08:00] [trace] [TFD] [048159] Open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261 sucess fd: 36
+[09/26/18 00:18:21.013 +08:00] [debug] [CLNT] [048159] Cache disabled, return UINT64_MAX
+[09/26/18 00:18:21.013 +08:00] [debug] [CLNT] [048159] Get Client Cached Size UINT64_MAX for fd 36
+[09/26/18 00:18:21.013 +08:00] [trace] [TFD] [048159] Get file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261 attributes success. Size: 0
+[09/26/18 00:18:21.013 +08:00] [trace] [TFD] [048159] Try to write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261 fd:36 offset:0 size:98320
+[09/26/18 00:18:21.014 +08:00] [trace] [TFD] [048159] Write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261 fd:36 offset:0 size:98320 success.
+[09/26/18 00:18:21.014 +08:00] [error] [TFD] [048159] Flushing file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261
+[09/26/18 00:18:21.014 +08:00] [trace] [TFD] [048159] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261 to dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001
+[09/26/18 00:18:21.014 +08:00] [debug] [CLNT] [048159] rh->status: 3
+[09/26/18 00:18:21.014 +08:00] [trace] [TFD] [048159] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001.tempstate347160183288339261 to dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001 success.
+[09/26/18 00:18:21.014 +08:00] [trace] [TFD] [048159] NewWritableFile: for uri dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428
+[09/26/18 00:18:21.014 +08:00] [debug] [CLNT] [048159] rh->status: 3
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] NotFound DmoFile for /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 from manager
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] NewWritableFile: new for /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to append file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:-1 size:523
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428
+[09/26/18 00:18:21.015 +08:00] [debug] [CLNT] [048159] opening /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 with flags 0
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 sucess fd: 37
+[09/26/18 00:18:21.015 +08:00] [debug] [CLNT] [048159] Cache disabled, return UINT64_MAX
+[09/26/18 00:18:21.015 +08:00] [debug] [CLNT] [048159] Get Client Cached Size UINT64_MAX for fd 37
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Get file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 attributes success. Size: 0
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:0 size:523
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:0 size:523 success.
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to append file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 size:5
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:523 size:5
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:523 size:5 success.
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to append file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 size:8
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:528 size:8
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:528 size:8 success.
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to append file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 size:5
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:536 size:5
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:536 size:5 success.
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to append file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 size:15
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:541 size:15
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:541 size:15 success.
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to append file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 size:5
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:556 size:5
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:556 size:5 success.
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to append file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 size:48
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Try to write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:561 size:48
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] Write file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 fd:37 offset:561 size:48 success.
+[09/26/18 00:18:21.015 +08:00] [error] [TFD] [048159] Flushing file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428
+[09/26/18 00:18:21.015 +08:00] [trace] [TFD] [048159] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 to dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index
+[09/26/18 00:18:21.016 +08:00] [debug] [CLNT] [048159] rh->status: 3
+[09/26/18 00:18:21.016 +08:00] [trace] [TFD] [048159] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index.tempstate4043265654921805428 to dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index success.
+[09/26/18 00:18:21.016 +08:00] [trace] [TFD] [048159] CreateDir: for uri dmo:///model_credit
+[09/26/18 00:18:21.016 +08:00] [debug] [TFD] [048159] Check directory /model_credit/ is existed.
+[09/26/18 00:18:21.016 +08:00] [trace] [TFD] [048159] GetFileSize: for uri dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index
+[09/26/18 00:18:21.016 +08:00] [debug] [CLNT] [048159] opening /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index with flags 0
+[09/26/18 00:18:21.016 +08:00] [debug] [CLNT] [048159] Cache disabled, return UINT64_MAX
+[09/26/18 00:18:21.016 +08:00] [debug] [CLNT] [048159] Get Client Cached Size UINT64_MAX for fd 38
+[09/26/18 00:18:21.016 +08:00] [debug] [CLNT] [048159] close file handle 38
+[09/26/18 00:18:21.016 +08:00] [debug] [CLNT] [048159] Cache disabled, return UINT64_MAX
+[09/26/18 00:18:21.016 +08:00] [trace] [TFD] [048159] NewRandomAccessFile: for uri dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index
+[09/26/18 00:18:21.016 +08:00] [trace] [TFD] [048159] NotFound DmoFile for /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index from manager
+[09/26/18 00:18:21.016 +08:00] [trace] [TFD] [048159] NewRandomAccessFile: new for /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index
+[09/26/18 00:18:21.016 +08:00] [trace] [TFD] [048159] Try to read file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index fd:-1 offset:561 size:48
+[09/26/18 00:18:21.016 +08:00] [trace] [TFD] [048159] Try to open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index
+[09/26/18 00:18:21.016 +08:00] [debug] [CLNT] [048159] opening /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index with flags 0
+[09/26/18 00:18:21.016 +08:00] [trace] [TFD] [048159] Open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index sucess fd: 39
+[09/26/18 00:18:21.016 +08:00] [debug] [CLNT] [048159] Cache disabled, return UINT64_MAX
+[09/26/18 00:18:21.016 +08:00] [debug] [CLNT] [048159] Get Client Cached Size UINT64_MAX for fd 39
+[09/26/18 00:18:21.016 +08:00] [trace] [TFD] [048159] Get file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index attributes success. Size: 609
+[09/26/18 00:18:21.017 +08:00] [trace] [TFD] [048159] Read file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index fd:39 offset:561 size:48 success.
+[09/26/18 00:18:21.017 +08:00] [trace] [TFD] [048159] Try to read file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index fd:39 offset:541 size:20
+[09/26/18 00:18:21.017 +08:00] [trace] [TFD] [048159] Try to open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index
+[09/26/18 00:18:21.017 +08:00] [trace] [TFD] [048159] Read file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index fd:39 offset:541 size:20 success.
+[09/26/18 00:18:21.017 +08:00] [trace] [TFD] [048159] Try to read file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index fd:39 offset:0 size:528
+[09/26/18 00:18:21.017 +08:00] [trace] [TFD] [048159] Try to open file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index
+[09/26/18 00:18:21.017 +08:00] [trace] [TFD] [048159] Read file /model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.index fd:39 offset:0 size:528 success.
+[09/26/18 00:18:21.017 +08:00] [trace] [TFD] [048159] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001 to dmo:///model_credit/model.ckpt-0.data-00000-of-00001
+[09/26/18 00:18:21.017 +08:00] [debug] [CLNT] [048159] rh->status: 9
+[09/26/18 00:18:21.017 +08:00] [error] [TFD] [048159] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_ed890aeace964a5aa0cd72e37ca71cf6/part-00000-of-00001.data-00000-of-00001 to dmo:///model_credit/model.ckpt-0.data-00000-of-00001 failed: -1009
+[09/26/18 00:21:20.430 +08:00] [trace] [TFD] [048167] CreateDir: for uri dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d
+[09/26/18 00:21:20.430 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:21:20.430 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:21:20.430 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:21:20.431 +08:00] [trace] [TFD] [048167] Create directory /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/ success.
+[09/26/18 00:21:20.431 +08:00] [trace] [TFD] [048167] NewWritableFile: for uri dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393
+[09/26/18 00:21:20.431 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:21:20.432 +08:00] [trace] [TFD] [048167] NotFound DmoFile for /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393 from manager
+[09/26/18 00:21:20.432 +08:00] [trace] [TFD] [048167] NewWritableFile: new for /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393
+[09/26/18 00:21:20.434 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393 fd:-1 size:98320
+[09/26/18 00:21:20.434 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393
+[09/26/18 00:21:20.434 +08:00] [debug] [CLNT] [048167] opening /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393 with flags 0
+[09/26/18 00:21:20.434 +08:00] [trace] [TFD] [048167] Open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393 sucess fd: 43
+[09/26/18 00:21:20.434 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:21:20.434 +08:00] [debug] [CLNT] [048167] Get Client Cached Size UINT64_MAX for fd 43
+[09/26/18 00:21:20.434 +08:00] [trace] [TFD] [048167] Get file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393 attributes success. Size: 0
+[09/26/18 00:21:20.434 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393 fd:43 offset:0 size:98320
+[09/26/18 00:21:20.434 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393 fd:43 offset:0 size:98320 success.
+[09/26/18 00:21:20.434 +08:00] [error] [TFD] [048167] Flushing file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393
+[09/26/18 00:21:20.434 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393 to dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001
+[09/26/18 00:21:20.434 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:21:20.435 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001.tempstate8539675322632097393 to dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001 success.
+[09/26/18 00:21:20.435 +08:00] [trace] [TFD] [048167] NewWritableFile: for uri dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515
+[09/26/18 00:21:20.435 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:21:20.435 +08:00] [trace] [TFD] [048167] NotFound DmoFile for /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 from manager
+[09/26/18 00:21:20.435 +08:00] [trace] [TFD] [048167] NewWritableFile: new for /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:-1 size:523
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515
+[09/26/18 00:21:20.436 +08:00] [debug] [CLNT] [048167] opening /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 with flags 0
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 sucess fd: 44
+[09/26/18 00:21:20.436 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:21:20.436 +08:00] [debug] [CLNT] [048167] Get Client Cached Size UINT64_MAX for fd 44
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Get file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 attributes success. Size: 0
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:0 size:523
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:0 size:523 success.
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 size:5
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:523 size:5
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:523 size:5 success.
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 size:8
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:528 size:8
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:528 size:8 success.
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 size:5
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:536 size:5
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:536 size:5 success.
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 size:15
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:541 size:15
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:541 size:15 success.
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 size:5
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:556 size:5
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:556 size:5 success.
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 size:48
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:561 size:48
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 fd:44 offset:561 size:48 success.
+[09/26/18 00:21:20.436 +08:00] [error] [TFD] [048167] Flushing file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 to dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index
+[09/26/18 00:21:20.436 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:21:20.436 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index.tempstate17772202274232812515 to dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index success.
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] CreateDir: for uri dmo:///model_credit
+[09/26/18 00:21:20.437 +08:00] [debug] [TFD] [048167] Check directory /model_credit/ is existed.
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] GetFileSize: for uri dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index
+[09/26/18 00:21:20.437 +08:00] [debug] [CLNT] [048167] opening /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index with flags 0
+[09/26/18 00:21:20.437 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:21:20.437 +08:00] [debug] [CLNT] [048167] Get Client Cached Size UINT64_MAX for fd 45
+[09/26/18 00:21:20.437 +08:00] [debug] [CLNT] [048167] close file handle 45
+[09/26/18 00:21:20.437 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] NewRandomAccessFile: for uri dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] NotFound DmoFile for /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index from manager
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] NewRandomAccessFile: new for /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] Try to read file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index fd:-1 offset:561 size:48
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index
+[09/26/18 00:21:20.437 +08:00] [debug] [CLNT] [048167] opening /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index with flags 0
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] Open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index sucess fd: 46
+[09/26/18 00:21:20.437 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:21:20.437 +08:00] [debug] [CLNT] [048167] Get Client Cached Size UINT64_MAX for fd 46
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] Get file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index attributes success. Size: 609
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] Read file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index fd:46 offset:561 size:48 success.
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] Try to read file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index fd:46 offset:541 size:20
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] Read file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index fd:46 offset:541 size:20 success.
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] Try to read file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index fd:46 offset:0 size:528
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] Read file /model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.index fd:46 offset:0 size:528 success.
+[09/26/18 00:21:20.437 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001 to dmo:///model_credit/model.ckpt-0.data-00000-of-00001
+[09/26/18 00:21:20.437 +08:00] [debug] [CLNT] [048167] rh->status: 9
+[09/26/18 00:21:20.437 +08:00] [error] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_fc7e51178234439cb6eeaadbc9c0d61d/part-00000-of-00001.data-00000-of-00001 to dmo:///model_credit/model.ckpt-0.data-00000-of-00001 failed: -1009
+[09/26/18 00:25:17.273 +08:00] [trace] [TFD] [048167] CreateDir: for uri dmo:///model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b
+[09/26/18 00:25:17.273 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:25:17.273 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:25:17.273 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:25:17.274 +08:00] [trace] [TFD] [048167] Create directory /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/ success.
+[09/26/18 00:25:17.274 +08:00] [trace] [TFD] [048167] NewWritableFile: for uri dmo:///model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173
+[09/26/18 00:25:17.274 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:25:17.275 +08:00] [trace] [TFD] [048167] NotFound DmoFile for /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173 from manager
+[09/26/18 00:25:17.275 +08:00] [trace] [TFD] [048167] NewWritableFile: new for /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173
+[09/26/18 00:25:17.277 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173 fd:-1 size:98320
+[09/26/18 00:25:17.277 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173
+[09/26/18 00:25:17.277 +08:00] [debug] [CLNT] [048167] opening /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173 with flags 0
+[09/26/18 00:25:17.277 +08:00] [trace] [TFD] [048167] Open file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173 sucess fd: 61
+[09/26/18 00:25:17.277 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:25:17.277 +08:00] [debug] [CLNT] [048167] Get Client Cached Size UINT64_MAX for fd 61
+[09/26/18 00:25:17.277 +08:00] [trace] [TFD] [048167] Get file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173 attributes success. Size: 0
+[09/26/18 00:25:17.277 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173 fd:61 offset:0 size:98320
+[09/26/18 00:25:17.277 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173 fd:61 offset:0 size:98320 success.
+[09/26/18 00:25:17.277 +08:00] [error] [TFD] [048167] Flushing file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173
+[09/26/18 00:25:17.277 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173 to dmo:///model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001
+[09/26/18 00:25:17.277 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:25:17.278 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001.tempstate12114515478533082173 to dmo:///model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.data-00000-of-00001 success.
+[09/26/18 00:25:17.278 +08:00] [trace] [TFD] [048167] NewWritableFile: for uri dmo:///model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289
+[09/26/18 00:25:17.278 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:25:17.279 +08:00] [trace] [TFD] [048167] NotFound DmoFile for /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 from manager
+[09/26/18 00:25:17.279 +08:00] [trace] [TFD] [048167] NewWritableFile: new for /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289
+[09/26/18 00:25:17.279 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:-1 size:523
+[09/26/18 00:25:17.279 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289
+[09/26/18 00:25:17.279 +08:00] [debug] [CLNT] [048167] opening /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 with flags 0
+[09/26/18 00:25:17.279 +08:00] [trace] [TFD] [048167] Open file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 sucess fd: 62
+[09/26/18 00:25:17.279 +08:00] [debug] [CLNT] [048167] Cache disabled, return UINT64_MAX
+[09/26/18 00:25:17.279 +08:00] [debug] [CLNT] [048167] Get Client Cached Size UINT64_MAX for fd 62
+[09/26/18 00:25:17.279 +08:00] [trace] [TFD] [048167] Get file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 attributes success. Size: 0
+[09/26/18 00:25:17.279 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:0 size:523
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:0 size:523 success.
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 size:5
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:523 size:5
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:523 size:5 success.
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 size:8
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:528 size:8
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:528 size:8 success.
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 size:5
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:536 size:5
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:536 size:5 success.
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 size:15
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:541 size:15
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:541 size:15 success.
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 size:5
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:556 size:5
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:556 size:5 success.
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to append file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 size:48
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to open file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Try to write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:561 size:48
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] Write file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 fd:62 offset:561 size:48 success.
+[09/26/18 00:25:17.280 +08:00] [error] [TFD] [048167] Flushing file /model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289
+[09/26/18 00:25:17.280 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 to dmo:///model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index
+[09/26/18 00:25:17.280 +08:00] [debug] [CLNT] [048167] rh->status: 3
+[09/26/18 00:25:17.281 +08:00] [trace] [TFD] [048167] RenameFile: from dmo:///model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index.tempstate3419203977063293289 to dmo:///model_credit/model.ckpt-0_temp_cdbe41f8affa47bab1572e284500873b/part-00000-of-00001.index success.
+[09/26/18 00:25:17.281 +08:00] [trace] [TFD] [048167] CreateDir: for uri dmo:///model_credit
+[09/26/18 00:25:17.281 +08:00] [debug] [TFD] [048167] Check directory /model_credit/ is existed.
+[09/26/18 00:25:17.281 +08:00] [t
