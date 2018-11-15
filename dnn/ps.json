@@ -1,0 +1,8 @@
+{
+    "cluster": {
+        "chief": ["cascad4:2222"],
+        "worker": ["cascad4:12222"],
+        "ps": ["cascad4:2224"]
+    },
+    "task": {"type": "ps", "index": 0}
+}

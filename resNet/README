@@ -1,0 +1,2 @@
+to control checkpointing, make changes to tensorflow/models/official/resnet/resnet_run_loop.py:
+	add 'keep_checkpoint_max=XXX, save_checkpoints_steps=YYY'

@@ -1,0 +1,109 @@
+[09/26/18 00:25:11.940 +08:00] [debug] [CLNT] [051592] mvfs_connect warm_up false
+[09/26/18 00:25:11.941 +08:00] [info] [TFD] [051592] Connect DMO Success!
+[09/26/18 00:25:16.453 +08:00] [trace] [TFD] [051592] FileExists: for uri dmo:///model_credit
+[09/26/18 00:25:16.453 +08:00] [trace] [TFD] [051592] file /model_credit exists
+[09/26/18 00:25:16.453 +08:00] [trace] [TFD] [051592] GetStat: for uri dmo:///model_credit
+[09/26/18 00:25:16.453 +08:00] [debug] [CLNT] [051592] opening /model_credit with flags 0
+[09/26/18 00:25:16.454 +08:00] [debug] [CLNT] [051592] Cache disabled, return UINT64_MAX
+[09/26/18 00:25:16.454 +08:00] [debug] [CLNT] [051592] Get Client Cached Size UINT64_MAX for fd 58
+[09/26/18 00:25:16.454 +08:00] [debug] [CLNT] [051592] close file handle 58
+[09/26/18 00:25:16.454 +08:00] [debug] [CLNT] [051592] Cache disabled, return UINT64_MAX
+[09/26/18 00:25:16.575 +08:00] [trace] [TFD] [052103] NewWritableFile: for uri dmo:///model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.575 +08:00] [debug] [CLNT] [052103] rh->status: 3
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] NotFound DmoFile for /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local from manager
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] NewWritableFile: new for /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:-1 size:12
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.576 +08:00] [debug] [CLNT] [052103] opening /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local with flags 0
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local sucess fd: 59
+[09/26/18 00:25:16.576 +08:00] [debug] [CLNT] [052103] Cache disabled, return UINT64_MAX
+[09/26/18 00:25:16.576 +08:00] [debug] [CLNT] [052103] Get Client Cached Size UINT64_MAX for fd 59
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Get file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local attributes success. Size: 0
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:0 size:12
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:0 size:12 success.
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:24
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:12 size:24
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:12 size:24 success.
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:4
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.576 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:36 size:4
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:36 size:4 success.
+[09/26/18 00:25:16.577 +08:00] [error] [TFD] [052103] Flushing file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] FileExists: for uri dmo:///model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local exists
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:12
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:40 size:12
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:40 size:12 success.
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:202323
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:52 size:202323
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:52 size:202323 success.
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:4
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:202375 size:4
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:202375 size:4 success.
+[09/26/18 00:25:16.577 +08:00] [error] [TFD] [052103] Flushing file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] FileExists: for uri dmo:///model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.577 +08:00] [trace] [TFD] [052103] file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local exists
+[09/26/18 00:25:16.622 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:12
+[09/26/18 00:25:16.622 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.622 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:202379 size:12
+[09/26/18 00:25:16.622 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:202379 size:12 success.
+[09/26/18 00:25:16.622 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:219454
+[09/26/18 00:25:16.622 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.622 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:202391 size:219454
+[09/26/18 00:25:16.623 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:202391 size:219454 success.
+[09/26/18 00:25:16.623 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:4
+[09/26/18 00:25:16.623 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:16.623 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:421845 size:4
+[09/26/18 00:25:16.623 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:421845 size:4 success.
+[09/26/18 00:25:16.706 +08:00] [trace] [TFD] [051592] FileExists: for uri dmo:///model_credit/checkpoint
+[09/26/18 00:25:16.706 +08:00] [debug] [CLNT] [051592] rh->status: 3
+[09/26/18 00:25:16.706 +08:00] [trace] [TFD] [051592] file /model_credit/checkpoint not found
+[09/26/18 00:25:16.939 +08:00] [trace] [TFD] [051592] FileExists: for uri dmo:///model_credit
+[09/26/18 00:25:16.940 +08:00] [trace] [TFD] [051592] file /model_credit exists
+[09/26/18 00:25:17.143 +08:00] [trace] [TFD] [051592] NewWritableFile: for uri dmo:///model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a
+[09/26/18 00:25:17.143 +08:00] [debug] [CLNT] [051592] rh->status: 3
+[09/26/18 00:25:17.144 +08:00] [trace] [TFD] [051592] NotFound DmoFile for /model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a from manager
+[09/26/18 00:25:17.144 +08:00] [trace] [TFD] [051592] NewWritableFile: new for /model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a
+[09/26/18 00:25:17.145 +08:00] [trace] [TFD] [051592] Try to append file /model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a fd:-1 size:585746
+[09/26/18 00:25:17.145 +08:00] [trace] [TFD] [051592] Try to open file /model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a
+[09/26/18 00:25:17.145 +08:00] [debug] [CLNT] [051592] opening /model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a with flags 0
+[09/26/18 00:25:17.145 +08:00] [trace] [TFD] [051592] Open file /model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a sucess fd: 60
+[09/26/18 00:25:17.145 +08:00] [debug] [CLNT] [051592] Cache disabled, return UINT64_MAX
+[09/26/18 00:25:17.145 +08:00] [debug] [CLNT] [051592] Get Client Cached Size UINT64_MAX for fd 60
+[09/26/18 00:25:17.145 +08:00] [trace] [TFD] [051592] Get file /model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a attributes success. Size: 0
+[09/26/18 00:25:17.145 +08:00] [trace] [TFD] [051592] Try to write file /model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a fd:60 offset:0 size:585746
+[09/26/18 00:25:17.146 +08:00] [trace] [TFD] [051592] Write file /model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a fd:60 offset:0 size:585746 success.
+[09/26/18 00:25:17.146 +08:00] [error] [TFD] [051592] Flushing file /model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a
+[09/26/18 00:25:17.146 +08:00] [trace] [TFD] [051592] RenameFile: from dmo:///model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a to dmo:///model_credit/graph.pbtxt
+[09/26/18 00:25:17.147 +08:00] [trace] [TFD] [051592] RenameFile: from dmo:///model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a to dmo:///model_credit/graph.pbtxt success.
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:12
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:421849 size:12
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:421849 size:12 success.
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:234180
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:421861 size:234180
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:421861 size:234180 success.
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:4
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:656041 size:4
+[09/26/18 00:25:17.251 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:656041 size:4 success.
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:12
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:656045 size:12
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:656045 size:12 success.
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:252192
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:656057 size:252192
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:656057 size:252192 success.
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Try to append file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 size:4
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Try to open file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Try to write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:908249 size:4
+[09/26/18 00:25:17.252 +08:00] [trace] [TFD] [052103] Write file /model_credit/events.out.tfevents.1537892716.cascad4.iswlab9.local fd:59 offset:908249 size:4 success.
+[09/26/18 00:25:17.643 +08:00] [trace] [TFD] [051592] Try to close file /model_credit/graph.pbtxt.tmp26ad3fe7ca324426a75992e5031d4e4a fd: 60
+[09/26/18 00:25:17.643 +08:00] [debug] [CLNT] [051592] close file handle 60
+[09/26/18 00:25:17.643 +08:00] [debug] [CLNT] [051592] Cache disabled, return UINT64_MAX
