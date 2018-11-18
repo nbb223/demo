@@ -39,7 +39,12 @@ FLAGS = tf.app.flags.FLAGS
 
 label_cols = {target: 6}
 
-NUM_CATEGORIES = 3000
+DEEP_FEATURE_DIMS = 3000
+WIDE_FEATURE_DIMS = 100
+NON_ZERO_NUM = 10
+
+BATCH_IDX = np.array([ i for i in range(batch_size)])
+
 features_deep = ['d0', 'd1', 'd2', 'd3', 'd4']
 features_wide = ['w1']
 default_value = [[""]] * 7
@@ -65,19 +70,51 @@ for col in features_deep:
 wide_cols = tf.feature_column.categorical_column_with_hash_bucket(features_wide[0], hash_bucket_size=hash_bucket_size)
 
 def getBatches(filenames):
+    '''
     def _contains(indexes, i):
         result = tf.SparseTensor(
             indexes.indices, tf.math.equal(indexes.values, str(i)), indexes.dense_shape)
         return tf.sparse_reduce_sum(tf.cast(result, tf.int32))
-    
-    def _parse(x):
-        indexes = tf.string_split([x], ":")
-        return [ tf.dtypes.as_string(_contains(indexes, i)) for i in range(NUM_CATEGORIES)]
+    '''
+    def mk_wide(indices):
+        def _gen_idx(row, x):
+            return row, tf.to_int64(x[0])
+
+        v = tf.reshape(tf.cast(tf.string_to_number(indices.values), tf.float32), [batch_size, 2])  #idx:value
+        elems = (BATCH_IDX, v)
+        idx = tf.map_fn(lambda x: _gen_idx(x[0], x[1]), elems=(BATCH_IDX, v), dtype=(tf.int64, tf.int64))
+        idx = tf.transpose(idx)
+        val = tf.map_fn(lambda x: x[1], elems=v)
+
+        return tf.sparse.SparseTensor(indices=idx, values=val, dense_shape=[batch_size, WIDE_FEATURE_DIMS])
+
+
+    def mk_deep(indexes):
+        def _make_idx(row, cols):
+            return tf.map_fn(lambda x: (row, x), elems=cols, dtype=(tf.int64, tf.int64))
+
+        idx = tf.reshape(tf.cast(tf.string_to_number(indexes.values), tf.int64), [batch_size, NON_ZERO_NUM])
+        elems = (BATCH_IDX, idx)
+        alternate = tf.map_fn(lambda x: _make_idx(x[0], x[1]), elems, dtype=(tf.int64, tf.int64))
+        alternate = tf.transpose(alternate)
+        indices = tf.reshape(alternate, [batch_size * NON_ZERO_NUM, 2])
+
+        val = np.array([1] * (batch_size * NON_ZERO_NUM), dtype='int64')
+        return tf.sparse.SparseTensor(indices=indices,
+                                      values=val,
+                                      dense_shape=[batch_size, DEEP_FEATURE_DIMS])
+
+    def _parse(k, x):
+        indices = tf.string_split([x], ":")
+
+        return tf.cond(tf.equal(k, 'w1'), mk_wide(indices), mk_deep(indices))
+
+#        return [ tf.dtypes.as_string(_contains(indexes, i)) for i in range(DEEP_FEATURE_DIMS)]
 
     def parse_one_batch(records):
         columns = tf.decode_csv(records, default_value, field_delim=delim)
 #        features = dict([(k, columns[v]) for k, v in feature_cols.items()])
-        features = dict([(k, _parse(columns[v])) for k, v in feature_cols.items()])
+        features = dict([(k, _parse(k, columns[v])) for k, v in feature_cols.items()])
         labels = [columns[v] for _, v in label_cols.items()]
         #labels = tf.stack(labels, axis=1)
         return features, labels
