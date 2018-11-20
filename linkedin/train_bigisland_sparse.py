@@ -15,20 +15,20 @@ start = time.time()
 
 hidden_units = [128,64,32]
 learning_rate = 0.001
-batch_size = 5
+batch_size = 26
 num_epochs = 1
 l1_regularization_strength = 0.001
 NUM_PARALLEL_BATCHES = 1
-hash_bucket_size = 200
+hash_bucket_size = 3000
 
-filenames = r"C:\Users\songjue\works\linkedin\sparse.csv"
+filenames = "/memverge/home/songjue/data/tmp/sparse.csv"
+model_dir = 'model_linkedin'
+
 target = 'label'
 delim = ','
 label_vocabulary = ["0", "1"]
 
-model_dir = 'model_linkedin'
 
-label_cols = {target: 6}
 
 DEEP_FEATURE_DIMS = 3000
 WIDE_FEATURE_DIMS = 100
@@ -40,13 +40,13 @@ features_deep = ['d0', 'd1', 'd2', 'd3', 'd4']
 features_wide = ['w1']
 default_value = [[""]] * 7
 feature_cols = {'w1':0, 'd0':1, 'd1':2, 'd2':3, 'd3':4, 'd4':5}
-#feature_cols = {'w1':0}
+label_cols = {target: 6}
 
 # calculate emb_dim
 emb_dim = []
 for c in features_deep:
 #    emb_dim.append(int(math.log(len(df[c].unique()), 2)))
-    emb_dim.append(32)
+    emb_dim.append(8)
 #print(emb_dim)
 
 deep_cols = []
