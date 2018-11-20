@@ -16,12 +16,15 @@ start = time.time()
 hidden_units = [128,64,32]
 learning_rate = 0.001
 batch_size = 26
+#batch_size = 1
+
 num_epochs = 1
 l1_regularization_strength = 0.001
 NUM_PARALLEL_BATCHES = 1
 hash_bucket_size = 3000
 
 filenames = "/memverge/home/songjue/data/tmp/sparse.csv"
+#filenames = "./sparse.csv"
 model_dir = 'model_linkedin'
 
 target = 'label'
@@ -58,19 +61,25 @@ for col in features_deep:
 #deep_cols=deep_cols[0]
 wide_cols = tf.feature_column.categorical_column_with_hash_bucket(features_wide[0], hash_bucket_size=hash_bucket_size)
 
-
+## 1. code snippet below uses constant batch_size to tranform tensors, so error like "InvalidArgumentError: Input to reshape is a tensor with 32 values, but the requested shape has 52" for the last batch.
+##    could be solved by using 'local variable of tf'? HOW?
+##
+## 2. both dense/sparse tensor work
+##
 def getBatches(filenames):
-    def mk_wide(indices):
+    def mk_wide(idx):
     #    def _gen_idx(row, x):
     #        return row, tf.to_int64(x[0])
 
-        v = tf.reshape(tf.cast(tf.string_to_number(indices.values), tf.float32), [batch_size, 2])  #idx:value
+        v = tf.reshape(tf.cast(tf.string_to_number(idx.values), tf.float32), [batch_size, 2])  #idx:value
 
         idx = tf.map_fn(lambda x: (x[0], tf.to_int64(x[1][0])), elems=(BATCH_IDX, v), dtype=(tf.int64, tf.int64))
         idx = tf.transpose(idx)
         val = tf.map_fn(lambda x: x[1], elems=tf.dtypes.as_string(v))
-
+        '''
         return tf.sparse.SparseTensor(indices=idx, values=val, dense_shape=[batch_size, WIDE_FEATURE_DIMS])
+        '''
+        return tf.sparse.to_dense(tf.sparse.SparseTensor(indices=idx, values=val, dense_shape=[batch_size, WIDE_FEATURE_DIMS]), default_value='0')
 
     def mk_deep(indexes):
         def _make_idx(row, cols):
@@ -83,9 +92,14 @@ def getBatches(filenames):
         indices = tf.reshape(alternate, [batch_size * NON_ZERO_NUM, 2])
 
         val = np.array(['1'] * (batch_size * NON_ZERO_NUM)) #, dtype='int64')
+        '''
         return tf.sparse_reorder(tf.sparse.SparseTensor(indices=indices,
                                       values=val,
                                       dense_shape=[batch_size, DEEP_FEATURE_DIMS]))
+        '''
+        return tf.sparse.to_dense(tf.sparse_reorder(tf.sparse.SparseTensor(indices=indices,
+                                      values=val,
+                                      dense_shape=[batch_size, DEEP_FEATURE_DIMS])), default_value='0')
 
     def _parse(k, x):
         indices = tf.string_split(x, ":")
@@ -114,7 +128,7 @@ def getBatches(filenames):
 
     d = tf.data.TextLineDataset(filenames, buffer_size=10000).skip(1)
     d = d.batch(batch_size)
-    d = d.repeat(num_epochs)
+#    d = d.repeat(num_epochs)
     #d = d.apply( tf.data.experimental.map_and_batch(parse_one_batch, batch_size)) #, num_parallel_batches=NUM_PARALLEL_BATCHES))
     d = d.map(map_func=parse_one_batch)
     d = d.prefetch(1000)
