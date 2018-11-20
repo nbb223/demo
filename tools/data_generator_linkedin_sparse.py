@@ -8,11 +8,12 @@ import random
 start = time.time()
 
 #DATASET_SIZE = 17618
-DATASET_SIZE = 50000
-CONCURRENCY = 40
+DATASET_SIZE = 500
+CONCURRENCY = 20
 
 NUM_DEEP_FEATURES = 5
 DEEP_CATEGORIES = 3000 #category num of each deep feature (in form of vectoer)
+WIDE_CATEGORIES = 100  #category num of each wide feature (in form of vectoer)
 DEEP_NON_ZERO = 10     #num of nono-zero vector in one deep feature
 
 
@@ -30,6 +31,8 @@ features = [
     'd4',
     'label'
 ]
+deep_range = range(0, DEEP_CATEGORIES)
+wide_range = range(0, WIDE_CATEGORIES)
 
 dataset = pd.DataFrame(columns=features)
 def gen_data_dataset(seq_num):
@@ -37,16 +40,11 @@ def gen_data_dataset(seq_num):
     for idx in range(DATASET_SIZE):
         data_row = []
 
-        data_row.append(str(random.randint(0,99)) + ":" + str(random.random()))
+        data_row.append(str(random.sample(wide_range, 1)[0]) + ":" + str(round(random.random(), 3)))
 
     
         for k in range(NUM_DEEP_FEATURES):
-            deep_feature = ''
-            for i in range(DEEP_NON_ZERO):
-                if (i < DEEP_NON_ZERO-1):
-                    deep_feature += str(random.randint(0, DEEP_CATEGORIES)) + ":"
-            else:
-                deep_feature += str(random.randint(0, DEEP_CATEGORIES))
+            deep_feature = ':'.join(str(e) for e in random.sample(deep_range, DEEP_NON_ZERO))
             data_row.append(deep_feature)
         
         data_row.append(random.randint(0,1))
