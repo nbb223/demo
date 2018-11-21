@@ -7,9 +7,9 @@ import random
 
 start = time.time()
 
-#DATASET_SIZE = 17618
-DATASET_SIZE = 500
-CONCURRENCY = 20
+DATASET_SIZE = 50000
+#DATASET_SIZE = 500
+CONCURRENCY = 40
 
 NUM_DEEP_FEATURES = 5
 DEEP_CATEGORIES = 3000 #category num of each deep feature (in form of vectoer)
@@ -31,8 +31,8 @@ features = [
     'd4',
     'label'
 ]
-deep_range = range(0, DEEP_CATEGORIES)
-wide_range = range(0, WIDE_CATEGORIES)
+deep_range = list(range(0, DEEP_CATEGORIES))
+wide_range = list(range(0, WIDE_CATEGORIES))
 
 dataset = pd.DataFrame(columns=features)
 def gen_data_dataset(seq_num):
