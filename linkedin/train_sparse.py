@@ -58,30 +58,32 @@ for col in features_deep:
     col = tf.feature_column.categorical_column_with_hash_bucket(col, hash_bucket_size=hash_bucket_size)
     deep_cols.append(tf.feature_column.embedding_column(col, emb_dim[count]))
     count += 1
-#deep_cols=deep_cols[0]
+
 wide_cols = tf.feature_column.categorical_column_with_hash_bucket(features_wide[0], hash_bucket_size=hash_bucket_size)
 
-## 1. code snippet below uses constant batch_size to tranform tensors, so error like "InvalidArgumentError: Input to reshape is a tensor with 32 values, but the requested shape has 52" for the last batch.
-##    could be solved by using 'local variable of tf'? HOW?
-##
-## 2. both dense/sparse tensor work
-##
 def getBatches(filenames):
-    def mk_wide(idx):
-    #    def _gen_idx(row, x):
-    #        return row, tf.to_int64(x[0])
+    """ 1. code snippet below uses constant batch_size to tranform tensors, so:
+            - error like "InvalidArgumentError: Input to reshape is a tensor with 32 values, but the requested shape has 52" for the last batch.
+              could be solved by using 'local variable of tf'? HOW?
+            - d.batch() must be called and before map().
+            - current code does not work with map_and_batch (since map_and_batch call map() first then batch() ??)
+
+        2. both dense/sparse tensor work fine
+    """
+    def _mk_wide(idx):
 
         v = tf.reshape(tf.cast(tf.string_to_number(idx.values), tf.float32), [batch_size, 2])  #idx:value
 
         idx = tf.map_fn(lambda x: (x[0], tf.to_int64(x[1][0])), elems=(BATCH_IDX, v), dtype=(tf.int64, tf.int64))
         idx = tf.transpose(idx)
         val = tf.map_fn(lambda x: x[1], elems=tf.dtypes.as_string(v))
-        '''
+        #'''
         return tf.sparse.SparseTensor(indices=idx, values=val, dense_shape=[batch_size, WIDE_FEATURE_DIMS])
         '''
         return tf.sparse.to_dense(tf.sparse.SparseTensor(indices=idx, values=val, dense_shape=[batch_size, WIDE_FEATURE_DIMS]), default_value='0')
+        '''
 
-    def mk_deep(indexes):
+    def _mk_deep(indexes):
         def _make_idx(row, cols):
             return tf.map_fn(lambda x: (row, x), elems=cols, dtype=(tf.int64, tf.int64))
 
@@ -92,7 +94,7 @@ def getBatches(filenames):
         indices = tf.reshape(alternate, [batch_size * NON_ZERO_NUM, 2])
 
         val = np.array(['1'] * (batch_size * NON_ZERO_NUM)) #, dtype='int64')
-        '''
+        #'''
         return tf.sparse_reorder(tf.sparse.SparseTensor(indices=indices,
                                       values=val,
                                       dense_shape=[batch_size, DEEP_FEATURE_DIMS]))
@@ -100,21 +102,19 @@ def getBatches(filenames):
         return tf.sparse.to_dense(tf.sparse_reorder(tf.sparse.SparseTensor(indices=indices,
                                       values=val,
                                       dense_shape=[batch_size, DEEP_FEATURE_DIMS])), default_value='0')
-
-    def _parse(k, x):
+        '''
+    def _parse_one_feature(k, x):
         indices = tf.string_split(x, ":")
         return tf.cond(pred=tf.equal(k, 'w1'),
-                       true_fn=lambda: mk_wide(indices),  # lambda is a must as true_fn/false_fn expects a callable
-                       false_fn=lambda: mk_deep(indices))
+                       true_fn=lambda: _mk_wide(indices),  # lambda is a must as true_fn/false_fn expects a callable
+                       false_fn=lambda: _mk_deep(indices))
 
-        #return indices
 
-    def parse_one_batch(records):
+    def _parse_one_batch(records):
        #print(records)
         columns = tf.decode_csv(records, default_value, field_delim=delim)
 
-        features = dict([(k, _parse(k, columns[v])) for k, v in feature_cols.items()])
-
+        features = dict([(k, _parse_one_feature(k, columns[v])) for k, v in feature_cols.items()])
         # features = dict([(k, columns[v]) for k, v in feature_cols.items()])
 
         labels = [columns[v] for _, v in label_cols.items()]
@@ -127,10 +127,10 @@ def getBatches(filenames):
     #d = d.flat_map(lambda filename: tf.data.TextLineDataset(filename, buffer_size=10000).skip(1))
 
     d = tf.data.TextLineDataset(filenames, buffer_size=10000).skip(1)
-    d = d.batch(batch_size)
-#    d = d.repeat(num_epochs)
-    #d = d.apply( tf.data.experimental.map_and_batch(parse_one_batch, batch_size)) #, num_parallel_batches=NUM_PARALLEL_BATCHES))
-    d = d.map(map_func=parse_one_batch)
+    d = d.batch(batch_size) 
+    d = d.repeat(num_epochs)
+    #d = d.apply( tf.data.experimental.map_and_batch(_parse_one_batch, batch_size)) #, num_parallel_batches=NUM_PARALLEL_BATCHES))
+    d = d.map(map_func=_parse_one_batch)
     d = d.prefetch(1000)
 
     return d
@@ -157,8 +157,9 @@ while True:
 config = tf.estimator.RunConfig()
 
 config = config.replace(keep_checkpoint_max=5, save_checkpoints_steps=500)
-#for Intel MKL tunning
+#for Intel MKL tunning (effective only in cpu-training??)
 session_config = tf.ConfigProto()
+session_config.gpu_options.allow_growth = True
 session_config.intra_op_parallelism_threads = 48
 session_config.inter_op_parallelism_threads = 48
 #session_config.log_device_placement = True
