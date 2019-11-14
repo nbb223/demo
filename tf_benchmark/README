@@ -1,3 +1,10 @@
+##### Notes:
+- must use compatible version of tensorflow to run benchmark code, e.g., tf v1.12 w/ branch 'cnn_tf_v1.12_compatible'
+- most of code changes mentioned below like --save_model_steps are implemented in later benchamrks like 'cnn_tf_v1.12_compatible'.
+#####
+
+
+
 *****  code changes to add new options for horovod, dmo support at : https://github.com/huangsongjue/benchmarks
 *****
 
@@ -18,7 +25,7 @@
 
 # distributed training: benchmark_cnn.py:      # First worker will be 'chief'
 # distributed training: benchmark_cnn.py:      # Description of "The method for managing variables": parameter_server, replicated, ...
-    - replicated, independent only apply to local mode
+    - replicated, independent only apply to local mode (independent is faster but obly used to check performance?)
     - hdfs results w/ bigisland:1 + maui:0 (images/sec)
         .parameter_server:          215/s/node, 430/s total 
         .distributed_replicated:    280/s/node, 560/s total
